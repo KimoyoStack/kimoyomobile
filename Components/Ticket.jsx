@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Text, View, Pressable, SafeAreaView, ScrollView } from 'react-native'
+import { Text, View, Pressable, SafeAreaView, ScrollView, TouchableOpacity } from 'react-native'
 import { createStackNavigator } from '@react-navigation/stack'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 
@@ -40,9 +40,9 @@ export default class Reservations extends Component {
                                 <View style={{flex: 2, backgroundColor: 'white', padding: 10, marginVertical: 10}}>
                                     <Text style={{fontSize: 20, color: '#33385B', margin: 10}}>Dernier Ticket</Text>
                                     <Text style={{marginHorizontal: 10, color: '#33385B'}}>Le ticket de votre derniere reservation se trouve ici. Cliquez 👇 pour l'ouvrir.</Text>
-                                    <Pressable style={{backgroundColor: '#F06B6B', width: '98%', paddingVertical: 10, marginVertical: 10, alignSelf: 'center', borderRadius: 5}} onPress={() => {this.props.navigation.navigate("Billet")}}>
+                                    <TouchableOpacity style={{backgroundColor: '#F06B6B', width: '98%', paddingVertical: 10, marginVertical: 10, alignSelf: 'center', borderRadius: 5}} onPress={() => {this.props.navigation.navigate("Billet")}}>
                                         <Text style={{textAlign: 'center', color: 'white'}}>Ouvrir le Ticket</Text>
-                                    </Pressable>
+                                    </TouchableOpacity>
                                 </View>
                             ) : (
                                 <Text></Text>

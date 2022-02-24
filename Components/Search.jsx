@@ -1,5 +1,5 @@
 import React, { Component, useState } from 'react'
-import  { View, Dimensions, SafeAreaView, ScrollView, TextInput } from 'react-native'
+import  { View, Dimensions, SafeAreaView, ScrollView, TextInput, TouchableOpacity } from 'react-native'
 import DropDownPicker from 'react-native-dropdown-picker';
 
 let heights = Dimensions.get('window').height
@@ -9,14 +9,16 @@ import {Components} from '../Config'
 
 export default function Search() {
 
-    let [depart, setDepart] = useState("depart")
-    let [arrive, setArrive] = useState("arrive")
-    let [date, setDate] = useState("date")
+    let [depart, setDepart] = useState("")
+    let [arrive, setArrive] = useState("")
+    let [date, setDate] = useState("")
     let [height, setHeight] = useState(heights/2)
     const [open, setOpen] = useState(false);
     const [value, setValue] = useState(null);
     const [items, setItems] = useState([
       {label: 'Apple', value: 'apple'},
+      {label: 'Banana', value: 'banana'},
+      {label: 'Banana', value: 'banana'},
       {label: 'Banana', value: 'banana'}
     ]);
 
@@ -39,14 +41,7 @@ export default function Search() {
                     <Components.Input p="Ville d'arrivée" s={require('./icons/pin.png')} v={arrive} o={(arrive) => setArrive(arrive)} focus={() => focus()} blur={() => blur()}  />
                     <Components.Input p="Date et heure de depart" s={require('./icons/calendar.png')} v={date} o={(date) => setDate(date)} focus={() => focus()} blur={() => blur()}  />
                     <Components.Btn text="Rechercher" />
-                    <DropDownPicker
-                        open={open}
-                        value={value}
-                        items={items}
-                        setOpen={setOpen}
-                        setValue={setValue}
-                        setItems={setItems}
-                    />
+
                 </View>
             </ScrollView>
         </SafeAreaView>

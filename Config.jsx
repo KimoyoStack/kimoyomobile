@@ -1,5 +1,6 @@
-import React, {useState} from 'react'
-import {Text, ImageBackground, Pressable, View, Image, TextInput, TouchableOpacity} from 'react-native'
+import React, {useState} from 'react';
+import { Dropdown } from 'react-native-element-dropdown';
+import {Text, ImageBackground, Pressable, View, Image, TextInput, TouchableOpacity, Button, StyleSheet} from 'react-native'
 
 let colors = {
     0: '#28a745',
@@ -39,6 +40,7 @@ let StyleSheetCreate = {
     },
     buttonText: {
         textAlign: 'center',
+        paddingHorizontal : 10,
         color: 'white',
         fontSize: 20,
     },
@@ -126,9 +128,73 @@ let StyleSheetCreate = {
         borderRadius: 8,
         padding: 15,
         backgroundColor: 'white'
-    }
+    },
+    dropdown: {
+        margin: 16,
+        height: 50,
+        backgroundColor: 'white',
+        borderRadius: 12,
+        padding: 12,
+        shadowColor: '#000',
+        shadowOffset: {
+          width: 0,
+          height: 1,
+        },
+        shadowOpacity: 0.2,
+        shadowRadius: 1.41,
+  
+        elevation: 2,
+      },
+      icon: {
+        marginRight: 5,
+      },
+      item: {
+        padding: 17,
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+      },
+      textItem: {
+        flex: 1,
+        fontSize: 16,
+      },
+      placeholderStyle: {
+        fontSize: 16,
+      },
+      selectedTextStyle: {
+        fontSize: 16,
+      },
+      iconStyle: {
+        width: 20,
+        height: 20,
+      },
+      inputSearchStyle: {
+        height: 40,
+        fontSize: 16,
+      },
 }
 exports.Styles = StyleSheetCreate
+
+const data = [
+    { label: 'Lome', value: '1' },
+    { label: 'Kara', value: '2' },
+    { label: 'Dapaong', value: '3' },
+    { label: 'Kpalimé', value: '4' },
+    { label: 'Atakpame', value: '5' },
+    { label: 'Sokode', value: '6' },
+    { label: 'Aneho', value: '7' },
+    { label: 'Tsevie', value: '8' },
+  ];
+
+
+const [value, setValue] = useState(null);
+const renderItem = (item) => {
+    return (
+        <View style={StyleSheetCreate.item}>
+          <Text style={StyleSheetCreate.textItem}>{item.label}</Text>
+        </View>
+      );
+};
 
 let Social = ({source}) => (
     <Pressable style={StyleSheetCreate.social}>
@@ -154,9 +220,9 @@ let Components = {
     ),
 
     Btn: ({text, event}) => (
-        <Pressable style={[StyleSheetCreate.button, {width: '60%'}]} onPress={() => {event ? event(): ""}}>
+        <TouchableOpacity style={[StyleSheetCreate.button, {width: '60%'}]} onPress={() => {event ? event(): ""}}>
             <Text style={StyleSheetCreate.buttonText}>{text}</Text>
-        </Pressable>
+        </TouchableOpacity>
     ),
 
     Input: ({v, s, p, se, o, blur, focus}) => {
@@ -183,9 +249,9 @@ let Components = {
     },
     TextWith: ({text, event}) => {
         return (
-            <Pressable onPress={() => {event ? event() : ""}}>
+            <TouchableOpacity onPress={() => {event ? event() : ""}}>
                 <Text style={StyleSheetCreate.textLogin}>{text}</Text>
-            </Pressable>
+            </TouchableOpacity>
         )
     },
 
@@ -254,11 +320,35 @@ let Components = {
                 </View>
             </TouchableOpacity>
         )
-    }
+    },
+
+    Dropdown: () => {
+        return (
+            <Dropdown
+                style={StyleSheetCreate.dropdown}
+                placeholderStyle={StyleSheetCreate.placeholderStyle}
+                selectedTextStyle={StyleSheetCreate.selectedTextStyle}
+                inputSearchStyle={StyleSheetCreate.inputSearchStyle}
+                iconStyle={StyleSheetCreate.iconStyle}
+                data={data}
+                search
+                maxHeight={300}
+                labelField="label"
+                valueField="value"
+                placeholder="Select item"
+                searchPlaceholder="Search..."
+                value={value}
+                onChange={item => {
+                setValue(item.value);
+                }}
+                renderItem={renderItem}
+            />
+        )
+    },
 }
 exports.Components = Components
 
-let apiSource = "https://app-lonie-reservation.herokuapp.com"
+let apiSource = "http://localhost:5501"
 exports.apiSource = apiSource
 
 let screenOptions = {

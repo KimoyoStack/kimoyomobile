@@ -11,12 +11,12 @@ let Stack = createStackNavigator()
 let height = Dimensions.get("window").height
 
 function Connexion({navigation}) {
-    let [email, setEmail] = useState("rbatoulime@gmail.com")
-    let [password, setPassword] = useState("Loichi98")
+    let [email, setEmail] = useState("moisekumavi7@gmail.com")
+    let [password, setPassword] = useState("moise10")
 
     let login = async () => {
         if(!(email && password)) {
-            alert('All fields is required')
+            alert('Veuillez renseigner toutes les informations')
         } else {
             await fetch(apiSource + '/users/login',{
                 method: 'POST',
@@ -59,12 +59,12 @@ function Connexion({navigation}) {
                     <Image source={require('./icons/lockCon.png')} style={{width: 40,height: 40}} />
                     <Components.Title text="Connection" />
                     <Components.Input p="Adresse mail" s={require('./icons/email.png')} v={email} o={(email) => {setEmail(email)}} />
-                    <Components.Input p="Mot de passe" s={require('./icons/lock.png')}  v={password} o={(password) => {setPassword(password)}}  se={true} />
+                    <Components.Input p="Mot de passe" s={require('./icons/lock.png')}  v={password} o={(password) => {setPassword(password)}} se={true} />
                     <Components.Btn text="Se connecter" event={() => login()} />
-                    <Components.TextWith text="Login with" />
+                    <Components.TextWith text="Se Connecter avec" />
                     <Components.Social />
-                    <Components.TextWith text="Forget password ?" />
-                    <Components.TextWith text="Don't have account ?" event={() => {navigation.navigate('Inscription')}} />
+                    <Components.TextWith text="Mot de passe oublié ?" />
+                    <Components.TextWith text="Créer un compte" event={() => {navigation.navigate('Inscription')}} />
                 </View>
             </ScrollView>
         </SafeAreaView>

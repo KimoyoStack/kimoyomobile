@@ -59,8 +59,8 @@ export default class About extends Component {
 
     Inform = ({view, value, color, size}) => (
         <View style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', marginVertical: 3}}>
-            <Text style={{fontSize: 18}}>{view}: </Text>
-            <Text style={{color: color ? color : 'rgba(0, 0, 0, 0.5)', fontSize: size ? size : 16}}> {value} </Text>
+            <Text style={{fontSize: 15}}>{view}: </Text>
+            <Text style={{color: color ? color : 'rgba(0, 0, 0, 0.5)', fontSize: size ? size : 14}}> {value} </Text>
         </View>
     )
 
@@ -92,7 +92,7 @@ export default class About extends Component {
                         <this.Inform view="Destination" value={voyage.destination} color="red" size={17} />
                         <this.Inform view="Nombre de places au Total" value={voyage.total} />
                         <this.Inform view="Nombre de places disponible" value={voyage.total - voyage.prise} />
-                        <this.Inform view="Prix du voyage en FCFA" value={voyage.price + " FCFA"} color="red" size={17} />
+                        <this.Inform view="Prix du voyage" value={voyage.price + " FCFA"} color="red" size={17} />
                     </View>
 
                     <View style={{paddingBottom: '25%'}}>

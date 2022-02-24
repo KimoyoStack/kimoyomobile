@@ -48,7 +48,7 @@ export default class Billet extends Component {
         return (
             <SafeAreaView style={{flex: 1}}>
                 <ScrollView style={{flex: 1}}>
-                    <View style={{height: height - 40, alignItems: 'center'}}>
+                    <View style={{height: height - 40, alignItems: 'center', marginBottom : 80}}>
                         <View style={{marginVertical: 10}}>
                             <Text style={{color: '#F06B6B', fontSize: 20, fontWeight: 'bold'}}>Dernière reservation</Text>
                         </View>
@@ -68,7 +68,7 @@ export default class Billet extends Component {
                         <View style={{marginVertical: 10}}>
                             <Text style={{color: '#F06B6B', fontSize: 20, fontWeight: 'bold'}}>Ticket</Text>
                         </View>
-                        <View style={{height: 210, width: 210, alignItems: 'center', justifyContent: 'center', backgroundColor: color}}>
+                        <View style={{height: 200, width: 200, alignItems: 'center', justifyContent: 'center', backgroundColor: color}}>
                             <Image 
                                 source={{uri: reservation.code}}
                                 style={{width: '90%', height: '90%'}}
