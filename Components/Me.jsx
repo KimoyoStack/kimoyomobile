@@ -45,7 +45,7 @@ export default class Me extends Component {
                             <this.Rend text={user.email} size={16} />
                             <View style={{marginVertical: 7}}>
                                 <TouchableOpacity style={{backgroundColor: '#F06B6B', paddingVertical: 7, paddingHorizontal: 20, borderRadius: 10}}>
-                                    <Text style={{color: 'white', fontSize: 16}}>Plus</Text>
+                                    <Text style={{color: 'white', fontSize: 16}}>Plus </Text>
                                 </TouchableOpacity>
                             </View>
                         </View>
